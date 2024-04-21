@@ -196,3 +196,6 @@ nodemon index.js
 5. <https://stackoverflow.com/questions/76076046/mysql-query-returns-undefined-node-js>
 6. <https://expressjs.com/>
 7. <https://expressjs.com/>
+
+- Github link for the project:
+  <https://github.com/PranavKalwad/Anakin-assignment>
