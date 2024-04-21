@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken")
 
-
 function isUserLoggedIn(req, res, next) {
   const token = req.headers["authorization"]
   if (!token) {
