@@ -85,85 +85,19 @@ This is the API to get all the seats which have been booked by the logged in use
 
 User table:
 
-+----------+--------------+------+-----+---------+----------------+
-| Field    | Type         | Null | Key | Default | Extra          |
-+----------+--------------+------+-----+---------+----------------+
-| id       | int          | NO   | PRI | NULL    | auto_increment |
-| username | varchar(100) | NO   | UNI | NULL    |                |
-| password | varchar(100) | NO   |     | NULL    |                |
-| role     | varchar(20)  | YES  |     | user    |                |
-+----------+--------------+------+-----+---------+----------------+
+![user table](image.png)
 
 Admin table
 
-+----------+--------------+------+-----+---------+----------------+
-| Field    | Type         | Null | Key | Default | Extra          |
-+----------+--------------+------+-----+---------+----------------+
-| id       | int          | NO   | PRI | NULL    | auto_increment |
-| username | varchar(100) | NO   | UNI | NULL    |                |
-| password | varchar(100) | NO   |     | NULL    |                |
-| role     | varchar(20)  | YES  |     | admin   |                |
-+----------+--------------+------+-----+---------+----------------+
+![admin table](image-1.png)
 
 train table
 
-+------------+--------------+------+-----+---------+----------------+
-| Field      | Type         | Null | Key | Default | Extra          |
-+------------+--------------+------+-----+---------+----------------+
-| id         | int          | NO   | PRI | NULL    | auto_increment |
-| train_name | varchar(100) | NO   | UNI | NULL    |                |
-| Train_no   | int          | NO   |     | NULL    |                |
-| seats      | int          | YES  |     | 100     |                |
-| src        | varchar(100) | NO   |     | NULL    |                |
-| dest       | varchar(100) | NO   |     | NULL    |                |
-| admin_id   | int          | YES  | MUL | NULL    |                |
-+------------+--------------+------+-----+---------+----------------+
+![train table](image-2.png)
 
 booking table
 
-+--------------+--------------+------+-----+---------+----------------+
-| Field        | Type         | Null | Key | Default | Extra          |
-+--------------+--------------+------+-----+---------+----------------+
-| id           | int          | NO   | PRI | NULL    | auto_increment |
-| Train_no     | int          | NO   |     | NULL    |                |
-| seats_booked | int          | YES  |     | 0       |                |
-| src          | varchar(100) | NO   |     | NULL    |                |
-| dest         | varchar(100) | NO   |     | NULL    |                |
-| user_id      | int          | YES  | MUL | NULL    |                |
-+--------------+--------------+------+-----+---------+----------------+
-
-        +-----------+      +-------------+      +------------+
-        |   Users   |      |    Admin    |      |   Train    |
-        +-----------+      +-------------+      +------------+
-         |      |           |      |             |      |
-         |      |           |      |             |      |
-  +------|------+      +----|------+      +-----|------+
-  |      v             |      v             |      v
-+-------+-------------+-------+-------------+--------+
-| id    | username    | id    | username    |  id    |
-+-------+-------------+-------+-------------+--------+
-|       | password    |       | password    |  train_name |
-|       | role        |       | role        |  Train_no   |
-|       |             |       |             |  seats      |
-+-------+-------------+-------+-------------+------------+
-                              |
-                              |
-                              v
-                      +-------------+
-                      |   Booking   |
-                      +-------------+
-                      | id          |
-                      | Train_no    |
-                      | seats_booked|
-                      | src         |
-                      | dest        |
-                      | user_id     |
-                      +-------------+
-
-- Each rectangle represents an entity/table in the database.
-- The lines between the rectangles represent relationships between the tables.
-- The diamond shape at the end of a line indicates a "many" relationship (one-to-many or many-to-many).
-- The lines from train and admin to booking indicate foreign key relationships.
+![booking table](image-3.png)
 
 ## Queries
 
