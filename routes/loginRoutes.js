@@ -38,6 +38,7 @@ router.post("/admin", async (req, res) => {
       msg: "Login successful",
       username: checkUser[0].username,
       role: checkUser[0].role,
+      id: checkUser[0].id,
     })
   }
 })
@@ -60,12 +61,13 @@ router.post("/user", async (req, res) => {
     return res.status(400).send({ msg: "Invalid password" })
   }
 
-  const token = generateAcessToken(username, checkUser[0].role)
+  const token = generateAcessToken(username, checkUser[0].id)
 
   res.status(200).send({
     msg: "Login successful",
     username: checkUser[0].username,
     role: checkUser[0].role,
+    id: checkUser[0].id,
     token,
   })
 })

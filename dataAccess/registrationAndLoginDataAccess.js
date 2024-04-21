@@ -52,9 +52,38 @@ function createUser(newUser) {
   })
 }
 
+function createTrain(newTrain){
+  let sql = "INSERT INTO train SET ?;"
+  return new Promise((resolve, reject) => {
+    pool.query(sql, newTrain, (err, result) => {
+      if (err) {
+        console.log(err)
+        return reject(err)
+      }
+      return resolve(result)
+    })
+  })
+}
+
+
+function searchForSeats(src, dest){
+  let sql = "SELECT Train_no,train_name,seats FROM train WHERE src = ? AND dest = ?;"
+  return new Promise((resolve, reject) => {
+    pool.query(sql, [src, dest], (err, result) => {
+      if (err) {
+        console.log(err)
+        return reject(err)
+      }
+      return resolve(result)
+    })
+  })
+}
+
 module.exports = {
   createUserAdmin,
   getUserByNameAdmin,
   getUserByName,
   createUser,
+  createTrain,
+  searchForSeats
 }

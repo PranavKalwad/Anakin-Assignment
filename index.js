@@ -3,6 +3,8 @@ const app = express()
 const pool = require("./utils/db")
 const registratonRoute = require("./routes/registrationRoute")
 const loginRoutes = require("./routes/loginRoutes")
+const adminRoutes = require("./routes/adminRoutes")
+const userRoutes = require("./routes/userRoutes")
 const bodyParser = require("body-parser")
 app.use(bodyParser.json())
 const port = 4000
@@ -28,4 +30,5 @@ app.get("/", (req, res) => {
 
 app.use("/api", registratonRoute)
 app.use("/api/login", loginRoutes)
-
+app.use("/api/admin", adminRoutes)
+app.use("/api/user", userRoutes)
